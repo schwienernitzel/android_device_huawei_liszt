@@ -12,15 +12,28 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-$(call inherit-product, device/huawei/hi3635/full_hi3635.mk)
+# Inherit from those products. Most specific first.
+$(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 
 # Inherit some common Omni stuff.
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
+
+# Inherit from kiwi device
+$(call inherit-product, device/huawei/hi3635/device.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
 TARGET_SCREEN_WIDTH := 1200
 
-PRODUCT_NAME := omni_hi3635
+PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_GMS_CLIENTID_BASE := android-huawei
+PRODUCT_NAME := omni_hi3635
+PRODUCT_DEVICE := hi3635
+PRODUCT_BRAND := Huawei
+PRODUCT_MANUFACTURER := HUAWEI
+PRODUCT_MODEL := MediaPad M2
+
+PRODUCT_BUILD_PROP_OVERRIDES += \
+    BUILD_FINGERPRINT="Huawei/MOZART/hi3635:6.0/MRA58K/huawei11291304:user/test-keys" \
+    PRIVATE_BUILD_DESC="MOZART-user 6.0 MRA58K eng.huawei.20161129.130256 test-keys" \
+    TARGET_DEVICE=hi3635
