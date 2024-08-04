@@ -1,0 +1,29 @@
+From 6cdc00761802ffdb57e915821525e480cd86d48b Mon Sep 17 00:00:00 2001
+From: schwienernitzel <pfelix0803@gmail.com>
+Date: Sun, 4 Aug 2024 09:17:47 +0000
+Subject: [PATCH] recovery Make our own TWRP version
+
+Change-Id: Ia308e4db703f2e53befeafbfbcf4bb159c573365
+Signed-off-by: schwienernitzel <pfelix0803@gmail.com>
+---
+ variables.h | 4 ++--
+ 1 file changed, 2 insertions(+), 2 deletions(-)
+
+diff --git a/variables.h b/variables.h
+index bcf228c..a180ba1 100644
+--- a/variables.h
++++ b/variables.h
+@@ -17,8 +17,8 @@
+ #ifndef _VARIABLES_HEADER_
+ #define _VARIABLES_HEADER_
+ 
+-#define TW_MAIN_VERSION_STR       "3.1.1"
+-#define TW_VERSION_STR TW_MAIN_VERSION_STR TW_DEVICE_VERSION
++#define TW_MAIN_VERSION_STR       "3.1.1-liszt"
++#define TW_VERSION_STR TW_MAIN_VERSION_STR
+ 
+ #define TW_USE_COMPRESSION_VAR      "tw_use_compression"
+ #define TW_FILENAME                 "tw_filename"
+-- 
+2.25.1
+
