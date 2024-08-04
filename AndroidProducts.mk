@@ -14,4 +14,4 @@
 # limitations under the License.
 
 PRODUCT_MAKEFILES := \
-	$(LOCAL_DIR)/omni_hi3635.mk
+	$(LOCAL_DIR)/omni_liszt.mk

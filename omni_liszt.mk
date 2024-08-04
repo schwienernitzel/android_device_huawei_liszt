@@ -19,7 +19,7 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, vendor/omni/config/common_tablet.mk)
 
 # Inherit from kiwi device
-$(call inherit-product, device/huawei/hi3635/device.mk)
+$(call inherit-product, device/huawei/liszt/device.mk)
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 1920
@@ -27,13 +27,13 @@ TARGET_SCREEN_WIDTH := 1200
 
 PRODUCT_CHARACTERISTICS := tablet
 
-PRODUCT_NAME := omni_hi3635
-PRODUCT_DEVICE := hi3635
-PRODUCT_BRAND := Huawei
-PRODUCT_MANUFACTURER := HUAWEI
-PRODUCT_MODEL := MediaPad M2
+PRODUCT_NAME := omni_liszt
+PRODUCT_DEVICE := liszt
+PRODUCT_BRAND := huawei
+PRODUCT_MANUFACTURER := Huawei
+PRODUCT_MODEL := MediaPad M2 10.0
 
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    BUILD_FINGERPRINT="Huawei/MOZART/hi3635:6.0/MRA58K/huawei11291304:user/test-keys" \
-    PRIVATE_BUILD_DESC="MOZART-user 6.0 MRA58K eng.huawei.20161129.130256 test-keys" \
+    BUILD_FINGERPRINT="HUAWEI/LISZT/hwliszt:5.1.1/HUAWEIM2-A01L/C100B010:user/release-keys" \
+    PRIVATE_BUILD_DESC="M2-A01L-user 5.1.1 HUAWEIM2-A01L C100B010 release-keys" \
     TARGET_DEVICE=hi3635

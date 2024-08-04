@@ -1,0 +1,36 @@
+From 5e4174490e907a4d94c141b938ef5237151314c3 Mon Sep 17 00:00:00 2001
+From: schwienernitzel <pfelix0803@gmail.com>
+Date: Fri, 21 Jun 2024 15:52:20 +0000
+Subject: [PATCH] mkbootimg: Treat tags_offset as 32bit integer
+
+Signed-off-by: schwienernitzel <pfelix0803@gmail.com>
+---
+ mkbootimg/mkbootimg | 3 ++-
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+ mode change 100755 => 100644 mkbootimg/mkbootimg
+
+diff --git a/mkbootimg/mkbootimg b/mkbootimg/mkbootimg
+old mode 100755
+new mode 100644
+index 5b3b7930e..38d66e19c
+--- a/mkbootimg/mkbootimg
++++ b/mkbootimg/mkbootimg
+@@ -19,6 +19,7 @@ from argparse import ArgumentParser, FileType, Action
+ from os import fstat
+ from struct import pack
+ from hashlib import sha1
++import ctypes
+ import sys
+ import re
+ 
+@@ -55,7 +56,7 @@ def write_header(args):
+         args.base + args.ramdisk_offset,                # physical load addr
+         filesize(args.second),                          # size in bytes
+         args.base + args.second_offset,                 # physical load addr
+-        args.base + args.tags_offset,                   # physical addr for kernel tags
++        ctypes.c_uint32(args.base + args.tags_offset).value, # physical addr for kernel tags
+         args.pagesize,                                  # flash page size we assume
+         filesize(args.dt),                              # size in bytes
+         (args.os_version << 11) | args.os_patch_level)) # os version and patch level
+-- 
+2.25.1
