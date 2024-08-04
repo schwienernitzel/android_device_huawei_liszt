@@ -60,5 +60,5 @@ done
 
 }
 
-clear_set cm
+clear_set omni
 echo -e "\033[32mSuccessfully cleared ROM patches!\033[0m"

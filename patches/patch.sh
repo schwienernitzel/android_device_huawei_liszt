@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ROM=cm
+ROM=omni
 CLEAR=${2}
 THISDIR=$PWD
 TOPDIR="$THISDIR/../../../../"
