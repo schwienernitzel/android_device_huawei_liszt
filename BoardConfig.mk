@@ -50,21 +50,25 @@ TARGET_NO_RADIOIMAGE := true
 BOARD_KERNEL_BASE := 0x00678000
 BOARD_KERNEL_PAGESIZE := 2048
 BOARD_KERNEL_CMDLINE := mem=3072M coherent_pool=512K mmcparts=mmcblk0:p1(vrl),p2(vrl_backup),p6(modemnvm_factory),p9(splash),p10(modemnvm_backup),p11(modemnvm_img),p12(modemnvm_system),p14(3rdmodemnvm),p15(3rdmodemnvmback),p17(modem_om),p20(modemnvm_update),p30(modem),p31(modem_dsp),p32(dfx),p33(3rdmodem) androidboot.selinux=permissive ate_enable=true
-#BOARD_KERNEL_CMDLINE := mem=3072M coherent_pool=512K mmcparts=mmcblk0:p1(vrl),p2(vrl_backup),p6(modemnvm_factory),p9(splash),p10(modemnvm_backup),p11(modemnvm_img),p12(modemnvm_system),p14(3rdmodemnvm),p15(3rdmodemnvmback),p17(modem_om),p20(modemnvm_update),p30(modem),p31(modem_dsp),p32(dfx),p33(3rdmodem) androidboot.selinux=enforcing ate_enable=true
 BOARD_MKBOOTIMG_ARGS := --kernel_offset 0x00008000 --ramdisk_offset 0x07588000 --tags_offset 0xffb88000
-#TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/erecovery/kernel
 TARGET_PREBUILT_KERNEL := $(LOCAL_PATH)/kernel
 
-# Partitions (Block size is 1024)
+# Partitions (Block Size: 1024)
+BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_HAS_LARGE_FILESYSTEM := true
 TARGET_USERIMAGES_USE_EXT4 := true
 BOARD_CACHEIMAGE_FILE_SYSTEM_TYPE := ext4
-BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824 # mmcblk0p27
-BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432 # mmcblk0p28
-BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560 # mmcblk0p38
-BOARD_USERDATAIMAGE_PARTITION_SIZE := 58351157248 # mmcblk0p40
-BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456 # mmcblk0p34
-BOARD_FLASH_BLOCK_SIZE := 131072
+
+# Boot - mmcblk0p27
+BOARD_BOOTIMAGE_PARTITION_SIZE := 25165824
+# Recovery - mmcblk0p28
+BOARD_RECOVERYIMAGE_PARTITION_SIZE := 33554432
+# System - mmcblk0p38
+BOARD_SYSTEMIMAGE_PARTITION_SIZE := 2684354560
+# Data - mmcblk0p40
+BOARD_USERDATAIMAGE_PARTITION_SIZE := 58351157248
+# Cache - mmcblk0p34
+BOARD_CACHEIMAGE_PARTITION_SIZE := 268435456
 
 # TWRP
 RECOVERY_VARIANT := twrp
