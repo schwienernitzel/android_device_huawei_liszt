@@ -26,6 +26,11 @@ PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/adb/busybox:root/sbin/sh
 
+# Debug
+PRODUCT_PACKAGES += \
+    dlopen32 \
+    dlopen64
+
 # Media
 PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/configs/media/media_codecs.xml:system/etc/media_codecs.xml \
