@@ -24,9 +24,9 @@ PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/erecovery/ramdisk/fstab.hi3635:recovery/root/fstab.hi3635 \
-    $(LOCAL_PATH)/erecovery/ramdisk/init.recovery.hi3635.rc:recovery/root/init.recovery.hi3635.rc \
-    $(LOCAL_PATH)/erecovery/ramdisk/ueventd.hi3635.rc:recovery/root/ueventd.hi3635.rc
+    $(LOCAL_PATH)/recovery/root/fstab.hi3635:recovery/root/fstab.hi3635 \
+    $(LOCAL_PATH)/recovery/root/init.recovery.hi3635.rc:recovery/root/init.recovery.hi3635.rc \
+    $(LOCAL_PATH)/recovery/root/ueventd.hi3635.rc:recovery/root/ueventd.hi3635.rc
 
 # adb as root
 ADDITIONAL_DEFAULT_PROPERTIES += ro.secure=0
