@@ -57,6 +57,14 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.setupwizard.enable_bypass=1 \
     ro.config.sync=yes
 
+# Ramdisk
+PRODUCT_PACKAGES += \
+    fstab.hi3635
+
+PRODUCT_PROPERTY_OVERRIDES += \
+    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/etc/,root/) \
+    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/sbin/,root/sbin/)
+
 # Screen
 TARGET_SCREEN_HEIGHT := 1200
 TARGET_SCREEN_WIDTH := 1920
