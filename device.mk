@@ -22,6 +22,10 @@ $(call inherit-product, vendor/huawei/liszt/vendor.mk)
 PRODUCT_AAPT_CONFIG := normal xxhdpi
 PRODUCT_AAPT_PREF_CONFIG := xxhdpi
 
+# ADB
+PRODUCT_COPY_FILES += \
+    $(DEVICE_PATH)/adb/busybox:root/sbin/sh
+
 # Properties
 ADDITIONAL_DEFAULT_PROPERTIES += \
     ro.zygote=zygote64_32 \
