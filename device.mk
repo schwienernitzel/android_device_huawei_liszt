@@ -61,9 +61,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     fstab.hi3635
 
+PRODUCT_PACKAGES += \
+    oeminfo_nvm_server \
+    teecd
+
 PRODUCT_PROPERTY_OVERRIDES += \
-    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/etc/,root/) \
-    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/sbin/,root/sbin/)
+    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/etc/,root/)
 
 # Screen
 TARGET_SCREEN_HEIGHT := 1200
