@@ -1,0 +1,26 @@
+From 3ab3a95d3af78944a53a1df3d407dc58b356ff5a Mon Sep 17 00:00:00 2001
+From: Meticulus <theonejohnny@gmail.com>
+Date: Tue, 6 Aug 2024 08:55:05 +0000
+Subject: [PATCH] init: skip remounting root readonly
+
+Signed-off-by: schwienernitzel <pfelix0803@gmail.com>
+---
+ rootdir/init.rc | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index 41d9a6b..5097aab 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -197,7 +197,7 @@ on late-init
+ 
+ on post-fs
+     # once everything is setup, no need to modify /
+-    mount rootfs rootfs / ro remount
++    # mount rootfs rootfs / ro remount
+     # mount shared so changes propagate into child namespaces
+     mount rootfs rootfs / shared rec
+ 
+-- 
+2.25.1
+
