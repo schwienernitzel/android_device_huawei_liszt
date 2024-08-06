@@ -68,6 +68,8 @@ PRODUCT_PACKAGES += \
     ueventd.hi3635.rc
 
 PRODUCT_PACKAGES += \
+    adbd \
+    hdbd \
     oeminfo_nvm_server \
     teecd
 

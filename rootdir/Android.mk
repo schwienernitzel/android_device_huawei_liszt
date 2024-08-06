@@ -86,3 +86,19 @@ LOCAL_MODULE_CLASS := ETC
 LOCAL_SRC_FILES    := sbin/teecd
 LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
 include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := adbd
+LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := sbin/adbd
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
+include $(BUILD_PREBUILT)
+
+include $(CLEAR_VARS)
+LOCAL_MODULE       := hdbd
+LOCAL_MODULE_TAGS  := optional eng
+LOCAL_MODULE_CLASS := ETC
+LOCAL_SRC_FILES    := sbin/hdbd
+LOCAL_MODULE_PATH  := $(TARGET_ROOT_OUT)/sbin
+include $(BUILD_PREBUILT)
