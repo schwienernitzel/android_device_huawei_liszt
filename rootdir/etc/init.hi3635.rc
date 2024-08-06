@@ -12,14 +12,14 @@ on early-init
     mkdir /storage 0555 root sdcard_r
     mkdir /storage/emulated 0555 root root
 
-    export EXTERNAL_STORAGE /storage/emulated/legacy
+    export EXTERNAL_STORAGE /storage/emulated/0
     export EMULATED_STORAGE_SOURCE /mnt/shell/emulated
     export EMULATED_STORAGE_TARGET /storage/emulated
 
-    symlink /storage/emulated/legacy /sdcard
-    symlink /storage/emulated/legacy /mnt/sdcard
-    symlink /storage/emulated/legacy /storage/sdcard0
-    symlink /storage/emulated/legacy /storage/emulated/0
+    symlink /storage/emulated/0 /sdcard
+    symlink /storage/emulated/0 /mnt/sdcard
+    symlink /storage/emulated/0 /storage/sdcard0
+    symlink /mnt/shell/emulated/0 /storage/emulated/0
     symlink /mnt/shell/emulated/0 /storage/emulated/legacy
 
     mkdir /mnt/media_rw 0700 media_rw media_rw
@@ -192,15 +192,21 @@ on charger
 on fs
     export ANDROID_STORAGE ""
 
+    mount ext4 /dev/block/mmcblk0p11 /mnvm2:0 wait rw noatime nosuid nodev
+    mount ext4 /dev/block/mmcblk0p17 /modem_log wait rw noatime nosuid nodev
+    mount ext4 /dev/block/platform/hi_mci.0/by-name/splash2 /splash2 wait rw noatime nosuid nodev
 
-    mount ext4 /dev/block/mmcblk0p34 /cache
+    wait /dev/block/platform/hi_mci.0
+    mount_all /fstab.hi3635
 
-    wait /dev/block/mmcblk0p38
-    mount ext4 /dev/block/mmcblk0p38 /system ro
+    #mount ext4 /dev/block/mmcblk0p34 /cache
 
-    wait /dev/block/mmcblk0p40
-    exec /system/bin/e2fsck -p /dev/block/mmcblk0p40
-    mount ext4 /dev/block/mmcblk0p40 /data nosuid nodev noatime wait crypt discard,noauto_da_alloc,mblk_io_submit,data=ordered
+    #wait /dev/block/mmcblk0p38
+    #mount ext4 /dev/block/mmcblk0p38 /system ro
+
+    #wait /dev/block/mmcblk0p40
+    #exec /system/bin/e2fsck -p /dev/block/mmcblk0p40
+    #mount ext4 /dev/block/mmcblk0p40 /data nosuid nodev noatime wait crypt discard,noauto_da_alloc,mblk_io_submit,data=ordered
 
     setprop ro.crypto.fuse_sdcard true
     restorecon /sys/class/hw_power/charger/charge_data/enable_charger
