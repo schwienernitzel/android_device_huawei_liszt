@@ -27,9 +27,9 @@ PRODUCT_COPY_FILES += \
     $(DEVICE_PATH)/adb/busybox:root/sbin/sh
 
 # Debug
-PRODUCT_PACKAGES += \
-    dlopen32 \
-    dlopen64
+#PRODUCT_PACKAGES += \
+#    dlopen32 \
+#    dlopen64
 
 # Media
 PRODUCT_COPY_FILES += \
