@@ -59,14 +59,20 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Ramdisk
 PRODUCT_PACKAGES += \
-    fstab.hi3635
+    fstab.hi3635 \
+    init.hi3635.rc \
+    init.hi3635.connectivity.rc \
+    init.hi3635.chip.usb.rc \
+    init.hi3635.usb.rc \
+    init.hi3635.gps.rc \
+    ueventd.hi3635.rc
 
 PRODUCT_PACKAGES += \
     oeminfo_nvm_server \
     teecd
 
-PRODUCT_PROPERTY_OVERRIDES += \
-    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/etc/,root/)
+#PRODUCT_PROPERTY_OVERRIDES += \
+#    $(call find-copy-subdir-files,*,device/huawei/liszt/rootdir/etc/,root/)
 
 # Screen
 TARGET_SCREEN_HEIGHT := 1200

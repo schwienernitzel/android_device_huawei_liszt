@@ -1,5 +1,9 @@
-import /init.balong_modem.rc
-import /init.tee.rc
+#import /init.balong_modem.rc
+#import /init.tee.rc
+
+import /init.hi3635.connectivity.rc
+import /init.hi3635.gps.rc
+import /init.hi3635.usb.rc
 
 on early-init
     export SECONDARY_STORAGE /storage/sdcard1

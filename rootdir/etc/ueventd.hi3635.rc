@@ -53,3 +53,7 @@
 /dev/block/mmcblk0p19					0660  system 	system
 /dev/hifi_misc                                          0660  root      audio
 /dev/block/mmcblk0p4                                   0660  system    system
+
+/dev/tpa2028_l              0660   media       media
+/dev/tpa2028_r              0660   media       media
+/dev/ad45257                0660   media       media

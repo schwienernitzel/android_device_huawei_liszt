@@ -1,4 +1,4 @@
-import /init.chip.usb.rc
+import /init.hi3635.chip.usb.rc
 
 on post-fs-data
     chown system system /sys/class/android_usb/f_mass_storage/suitestate
