@@ -1,0 +1,46 @@
+From 1f30fcb32fb32db09b57198625bea0f0ba8dba14 Mon Sep 17 00:00:00 2001
+From: schwienernitzel <pfelix0803@gmail.com>
+Date: Tue, 6 Aug 2024 09:53:54 +0000
+Subject: [PATCH] Remove missing writepids on zygote
+
+Signed-off-by: schwienernitzel <pfelix0803@gmail.com>
+---
+ rootdir/init.rc             | 2 +-
+ rootdir/init.zygote64_32.rc | 3 ++-
+ 2 files changed, 3 insertions(+), 2 deletions(-)
+
+diff --git a/rootdir/init.rc b/rootdir/init.rc
+index 41d9a6b..a4973f5 100644
+--- a/rootdir/init.rc
++++ b/rootdir/init.rc
+@@ -7,7 +7,7 @@
+ import /init.environ.rc
+ import /init.usb.rc
+ import /init.${ro.hardware}.rc
+-import /init.${ro.zygote}.rc
++import /init.zygote64_32.rc
+ import /init.trace.rc
+ # Include CM's extra init file
+ import /init.cm.rc
+diff --git a/rootdir/init.zygote64_32.rc b/rootdir/init.zygote64_32.rc
+index 979ab3b..e4d9120 100644
+--- a/rootdir/init.zygote64_32.rc
++++ b/rootdir/init.zygote64_32.rc
+@@ -1,12 +1,13 @@
+ service zygote /system/bin/app_process64 -Xzygote /system/bin --zygote --start-system-server --socket-name=zygote
+     class main
+     socket zygote stream 660 root system
+-    onrestart write /sys/android_power/request_state wake
+     onrestart write /sys/power/state on
+     onrestart restart media
+     onrestart restart netd
++    critical
+ 
+ service zygote_secondary /system/bin/app_process32 -Xzygote /system/bin --zygote --socket-name=zygote_secondary
+     class main
+     socket zygote_secondary stream 660 root system
+     onrestart restart zygote
++    critical
+-- 
+2.25.1
+
